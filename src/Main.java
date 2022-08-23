@@ -8,10 +8,10 @@ public class Main {
         int clientDeviceYear = 2022;
         outputScreen(clientOS, clientDeviceYear);
         int deliveryDistance = 95;
-        outputDays(deliveryDistance);
+        System.out.println("Потребуется дней: " + outputDays(deliveryDistance));
     }
 
-    public static void printResult(int number) {
+    private static void printResult(int number) {
         boolean leapYear = isLeapYear(number);
         printIsLeapYearResult(number, leapYear);
     }
@@ -28,7 +28,7 @@ public class Main {
         }
     }
 
-    public static void outputScreen(int OS, int year) {
+    private static void outputScreen(int OS, int year) {
         int currentYear = LocalDate.now().getYear();
         if ((OS == 0) && (year >= currentYear)) {
             System.out.println("Установите версию приложения для iOS по ссылке");
@@ -45,14 +45,14 @@ public class Main {
         }
     }
 
-    public static void outputDays(int Distance) {
-        int DeliveryDays = 1;
-        if (Distance > 20) {
-            DeliveryDays++;
+    private static int outputDays(int distance) {
+        int deliveryDays = 1;
+        if (distance > 20) {
+            deliveryDays++;
         }
-        if (Distance > 60) {
-            DeliveryDays++;
+        if (distance > 60) {
+            deliveryDays++;
         }
-        System.out.println("Потребуется дней: " + DeliveryDays);
+        return deliveryDays;
     }
 }
